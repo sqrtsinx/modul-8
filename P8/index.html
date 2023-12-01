@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> Form Input Nilai Matkul</h2>
+
+    <form action="ipk.php" method="post">
+        <!--input column for nilai matkul-->
+    <label for="nilai1">Nilai Matkul 1</label>
+    <input type="text" name="nilai1[]" required><br>
+
+    <!--Container-->
+    <div id="input_column"></div>
+
+    <button type="button" id="input_add">Tambah Matkul</button>
+    <br> <!--adding newline here!-->
+
+    <input type="submit" value="Hitung IPK">
+    </form>
+
+    <script>
+        var counter = 2
+        document.getElementById('input_add').addEventListener('click', function(){
+            var newLabel = document.createElement('label')
+            newLabel.setAttribute('for', 'nilai1[]' + counter)
+            newLabel.textContent = 'Nilai Matkul' + (counter) + ':'
+
+            var newInput = document.createElement('input')
+            newInput.type = 'text'
+            newInput.name = 'nilai1[]'
+            newInput.placeholder = 'Nilai Matakuliah' + (counter - 1)
+
+            document.getElementById('input_column').appendChild(newLabel)
+            document.getElementById('input_column').appendChild(newInput)
+            document.getElementById('input_column').appendChild(document.createElement('br'))
+        })
+    </script>
+</body>
+</html>
